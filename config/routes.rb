@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources :reservations do
-    resources :photos
-  end
+  belongs_to :reservation
+
+  has_one_attached :image
+
+  validates :image, presence: true
 end
